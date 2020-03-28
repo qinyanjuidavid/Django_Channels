@@ -1,0 +1,81 @@
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\HP>docker --version
+Docker version 19.03.8, build afacb8b
+
+C:\Users\HP>docker run hello world
+Unable to find image 'hello:latest' locally
+docker: Error response from daemon: pull access denied for hello, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+
+C:\Users\HP>docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+Digest: sha256:f9dfddf63636d84ef479d645ab5885156ae030f611a56f3a7ac7f2fdd86d7e4e
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+C:\Users\HP>docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce289e99eb9        15 months ago       1.84kB
+
+C:\Users\HP>docker container ls --all
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                          PORTS               NAMES
+fa758860022e        hello-world         "/hello"            About a minute ago   Exited (0) About a minute ago                       amazing_goldstine
+C:\Users\HP>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce289e99eb9        15 months ago       1.84kB
+
+C:\Users\HP>docker pull redis
+Using default tag: latest
+latest: Pulling from library/redis
+68ced04f60ab: Pull complete
+7ecc253967df: Pull complete
+765957bf98d4: Pull complete
+91fff01e8fef: Pull complete
+76feb725b7e3: Pull complete
+75797de34ea7: Pull complete
+Digest: sha256:ddf831632db1a51716aa9c2e9b6a52f5035fc6fa98a8a6708f6e83033a49508d
+Status: Downloaded newer image for redis:latest
+docker.io/library/redis:latest
+
+C:\Users\HP>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+redis               latest              f0453552d7f2        12 days ago         98.2MB
+hello-world         latest              fce289e99eb9        15 months ago       1.84kB
+
+C:\Users\HP>docker run --name some-redis -d redis
+b86da724318aa61695ea22446b2e3fb54d21d4408a3c36ff7eee1aa3a977b5f5
+
+C:\Users\HP>docker run -p 6379:6379 -d redis:5
+Unable to find image 'redis:5' locally
+5: Pulling from library/redis
+Digest: sha256:ddf831632db1a51716aa9c2e9b6a52f5035fc6fa98a8a6708f6e83033a49508d
+Status: Downloaded newer image for redis:5
+992fd17db51d892e3810032de3fd5a177ab537de6dde447bf1d064c9d422445d
+
+C:\Users\HP>docker run -p 6379:6379 -d redis:5
+09fd459003b9efef00d0f026e44b70053a80aac212dd7b29dad177e225d1915a
+docker: Error response from daemon: driver failed programming external connectivity on endpoint keen_mahavira (c2cb58f17a9539836fc0351b562708ee92791105b44fb3d6ff7311f6fc4c8dde): Bind for 0.0.0.0:6379 failed: port is already allocated.

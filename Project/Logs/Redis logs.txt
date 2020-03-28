@@ -1,0 +1,20 @@
+C:\Users\HP>cd..
+
+C:\Users>cd..
+
+C:\>cd Program Files
+
+C:\Program Files>cd Redis
+
+C:\Program Files\Redis>redis-cli
+redis 127.0.0.1:6379> "day"
+(error) ERR unknown command 'day'
+redis 127.0.0.1:6379> set yourkey "day"
+OK
+redis 127.0.0.1:6379> get yourkey
+"day"
+redis 127.0.0.1:6379> ping
+PONG
+redis 127.0.0.1:6379> pong
+(error) ERR unknown command 'pong'
+redis 127.0.0.1:6379>
